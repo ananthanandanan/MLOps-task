@@ -1,0 +1,15 @@
+version: "3"
+services:
+  jupyter:
+    # image: jupyter/scipy-notebook:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - JUPYTER_TOKEN=${MY_NB_TOKEN}
+      - NEPTUNE_API_TOKEN=${MY_NEP_TOKEN}
+    volumes:
+      - ./:/home/jovyan/work
+    ports:
+      - 8888:8888
+    container_name: eusml-demo
