@@ -9,7 +9,11 @@ services:
       - JUPYTER_TOKEN=${MY_NB_TOKEN}
       - NEPTUNE_API_TOKEN=${MY_NEP_TOKEN}
     volumes:
-      - ./:/home/jovyan/work
+      - new_volume:/home/jovyan/work/work1
+      - ./data:/home/jovyan/work/work2
     ports:
       - 8888:8888
     container_name: eusml-demo
+
+volumes:
+  new_volume:
